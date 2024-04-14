@@ -1,6 +1,4 @@
-import "./App.css";
-
-function App() {
+function PortolioHomepage() {
   return (
     <div>
       <h1 className="text-5xl">Louis Chu</h1>
@@ -8,4 +6,4 @@ function App() {
   );
 }
 
-export default App;
+export default PortolioHomepage;
