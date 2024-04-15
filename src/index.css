@@ -12,3 +12,13 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* background colors */
+
+html {
+  --bg-0: #6097cf;
+  --bg-1: #c4d6d2;
+  --bg-2: #123c54;
+  --bg-3: #185d7e;
+  --bg-4: #1f2124;
+}

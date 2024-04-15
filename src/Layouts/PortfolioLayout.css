@@ -1,4 +1,6 @@
 #portfolio-layout {
-  background-color: #609bd3;
+  background-color: var(--bg-0);
   color: white;
+  width: 100vw;
+  height: 100vh;
 }
