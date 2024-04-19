@@ -1,4 +1,6 @@
+import About from "../Components/About";
 import Banner from "../Components/Banner";
+import Experience from "../Components/Experience";
 import "./PortfolioHomepage.css";
 
 function PortolioHomepage() {
@@ -13,8 +15,10 @@ function PortolioHomepage() {
     >
       <div className="lg:flex lg:justify-between lg:gap-4 lg:min-h-screen">
         <Banner />
-        <div className="bg-black">woa</div>
-        {/* <Content/> */}
+        <main className="pt-24 lg:w-1/2 lg:py-24">
+          <About id="about" />
+          <Experience id="experience" />
+        </main>
       </div>
     </div>
   );

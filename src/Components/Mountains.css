@@ -1,5 +1,5 @@
 #mountains {
-  z-index: 0;
+  z-index: -1;
   position: absolute;
   height: 100vh;
   width: 100vw;
