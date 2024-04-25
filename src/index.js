@@ -15,11 +15,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<PortfolioLayout />}>
       <Route index element={<PortolioHomepage />} />
-      <Route path="/games" element={<GamesLayout />}>
-        <Route path="/games" element={<GamesHomepage />}></Route>
-        <Route path="/games/BlockBreaker" element={<BlockBreaker />}></Route>
-        <Route path="/games/*" element={<NoGameFoundPage />}></Route>
-      </Route>
+      {/* // <Route path="/games" element={<GamesLayout />}>
+      //   <Route path="/games" element={<GamesHomepage />}></Route>
+      //   <Route path="/games/BlockBreaker" element={<BlockBreaker />}></Route>
+      //   <Route path="/games/*" element={<NoGameFoundPage />}></Route>
+      // </Route> */}
     </Route>
   )
 );

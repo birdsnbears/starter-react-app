@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Experience.css";
 import Job from "./Job";
 
 function Experience() {

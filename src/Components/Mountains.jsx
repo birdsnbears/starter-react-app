@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./Mountains.css";
 
-const mountains = ["mountain1", "mountain2", "mountain3", "mountain4", "mountain5"];
-
-const initialYOffset = [0, 10, 20, 30, 40];
-const finalYOffset = [5, 20, 35, 50, 65];
-
-const initialSize = [105, 105, 105, 105, 105];
-const finalSize = [110, 115, 120, 125, 130];
+const mountains = ["mountain5", "mountain4", "mountain3", "mountain2", "mountain1"];
 
 function Mountains() {
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.scrollY);
+  const [percentScroll, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(getScrollPercent());
+
+  function getScrollPercent() {
+    var h = document.documentElement,
+      b = document.body,
+      st = "scrollTop",
+      sh = "scrollHeight";
+    return (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight);
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -22,18 +24,20 @@ function Mountains() {
   }, []);
 
   return (
-    <div id="mountains">
-      <div className="mountain w-screen">
-        {mountains.map((name) => {
+    <div id="mountains" className="sticky top-0 w-screen h-0 left-0 -mx-6 text-purple-200">
+      <div className="relative w-screen h-screen top-0 overflow-x-clip overflow-y-clip">
+        {mountains.map((name, index) => {
           return (
-            <svg
-              id={name}
+            <div
+              className="absolute w-screen h-screen group"
               key={name}
-              className="w-screen h-screen absolute"
               style={{
-                transform: `translateY(${offsetY * 0.5}px}`,
+                transform: `scale(${(110 + 5 * percentScroll + index * index * percentScroll) / 100}) translate(0,${8 * index - 5 * percentScroll - index * index * percentScroll + 10}vh)`,
               }}
-            ></svg>
+            >
+              <svg id={name} className={`origin-top w-full h-[100vw]`}></svg>
+              <div className="w-screen h-full bg-[#101E2F] hidden group-last:block"></div>
+            </div>
           );
         })}
       </div>
