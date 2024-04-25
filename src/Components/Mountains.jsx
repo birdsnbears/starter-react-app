@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Mountains.css";
 
 const mountains = ["mountain5", "mountain4", "mountain3", "mountain2", "mountain1"];
 
@@ -36,7 +35,7 @@ function Mountains() {
               }}
             >
               <svg id={name} className={`origin-top w-full h-[100vw]`}></svg>
-              <div className="w-screen h-full bg-[#101E2F] hidden group-last:block"></div>
+              <div className="w-screen h-full -mt-5 bg-[#101E2F] hidden group-last:block"></div>
             </div>
           );
         })}
