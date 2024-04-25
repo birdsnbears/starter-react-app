@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import mountain1 from "../SVGs/mountains/mountains1.svg";
 import mountain2 from "../SVGs/mountains/mountains2.svg";
 import mountain3 from "../SVGs/mountains/mountains3.svg";
@@ -7,40 +7,21 @@ import mountain5 from "../SVGs/mountains/mountains5.svg";
 
 const mountains = [mountain5, mountain4, mountain3, mountain2, mountain1];
 
-function Mountains() {
-  const [percentScroll, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(getScrollPercent());
-
-  function getScrollPercent() {
-    var h = document.documentElement,
-      b = document.body,
-      st = "scrollTop",
-      sh = "scrollHeight";
-    return (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight);
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+function Mountains({ percentScroll }) {
   return (
-    <div className="sticky top-0 w-screen h-0 left-0 -mx-6">
-      <div className="relative w-screen h-screen top-0 overflow-x-clip overflow-y-clip">
+    <div className="sticky top-0 w-screen h-0 left-0">
+      <div className="relative w-full h-screen top-0 overflow-x-clip overflow-y-clip">
         {mountains.map((source, index) => {
           return (
             <div
-              className="absolute w-screen h-screen group"
+              className="absolute w-full h-full group"
               key={index}
               style={{
                 transform: `scale(${(110 + 5 * percentScroll + index * index * percentScroll) / 100}) translate(0,${8 * index - 5 * percentScroll - index * index * percentScroll + 10}vh)`,
               }}
             >
               <img className={`origin-top w-full h-[100vw]`} src={source} alt="background"></img>
-              <div className="w-screen h-full -mt-5 bg-[#101E2F] hidden group-last:block"></div>
+              <div className="w-full h-full -mt-5 bg-mountain-100 hidden group-last:block"></div>
             </div>
           );
         })}
