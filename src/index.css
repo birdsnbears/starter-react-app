@@ -31,29 +31,4 @@ html {
   #mountain5 {
     background-image: url("/public/mountains/mountains5.svg");
   }
-  /* mnt */
-  /* old palette */
-  --osky: #6097cf;
-  --omnt-0: #1f2124;
-  --omnt-1: #123c54;
-  --omnt-2: #185d7e;
-  --omnt-3: #8bc8ca;
-  --omnt-4: #b5dbd2;
-  /* new palette */
-  --sky: #d9d3c7;
-  --mnt-0: #18262f;
-  --mnt-1: #223440;
-  --mnt-2: #2a4b5a;
-  --mnt-3: #63818c;
-  --mnt-4: #94a2a5;
-  /* old palette */
-  --otree-0: #2a3115;
-  --otree-1: #4d5634;
-  --otree-2: #2f3422;
-  --otree-3: #1f2124;
-  /* new palette */
-  --tree-0: #434f38;
-  --tree-1: #394231;
-  --tree-2: #323935;
-  --tree-3: #233031;
 }

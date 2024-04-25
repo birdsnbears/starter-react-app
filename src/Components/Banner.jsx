@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div
       id="banner"
-      className="py-12 px-8 -mx-6 bg-sky-200 bg-opacity-25 backdrop-blur-sm drop-shadow 
+      className="py-12 px-8 -mx-6 bg-badgebg bg-opacity-25 backdrop-blur-sm drop-shadow 
     md:py-20
     lg:py-24 lg:sticky lg:top-0 lg:bottom-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between"
     >
