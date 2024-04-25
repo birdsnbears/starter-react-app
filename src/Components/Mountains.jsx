@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
+import mountain1 from "../SVGs/mountains/mountains1.svg";
+import mountain2 from "../SVGs/mountains/mountains2.svg";
+import mountain3 from "../SVGs/mountains/mountains3.svg";
+import mountain4 from "../SVGs/mountains/mountains4.svg";
+import mountain5 from "../SVGs/mountains/mountains5.svg";
 
-const mountains = ["mountain5", "mountain4", "mountain3", "mountain2", "mountain1"];
+const mountains = [mountain5, mountain4, mountain3, mountain2, mountain1];
 
 function Mountains() {
   const [percentScroll, setOffsetY] = useState(0);
@@ -23,18 +28,18 @@ function Mountains() {
   }, []);
 
   return (
-    <div id="mountains" className="sticky top-0 w-screen h-0 left-0 -mx-6 text-purple-200">
+    <div className="sticky top-0 w-screen h-0 left-0 -mx-6">
       <div className="relative w-screen h-screen top-0 overflow-x-clip overflow-y-clip">
-        {mountains.map((name, index) => {
+        {mountains.map((source, index) => {
           return (
             <div
               className="absolute w-screen h-screen group"
-              key={name}
+              key={index}
               style={{
                 transform: `scale(${(110 + 5 * percentScroll + index * index * percentScroll) / 100}) translate(0,${8 * index - 5 * percentScroll - index * index * percentScroll + 10}vh)`,
               }}
             >
-              <svg id={name} className={`origin-top w-full h-[100vw]`}></svg>
+              <img className={`origin-top w-full h-[100vw]`} src={source} alt="background"></img>
               <div className="w-screen h-full -mt-5 bg-[#101E2F] hidden group-last:block"></div>
             </div>
           );

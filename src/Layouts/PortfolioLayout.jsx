@@ -4,7 +4,7 @@ import Trees from "../Components/Trees";
 
 function PortfolioLayout() {
   return (
-    <div id="portfolio-layout" className="w-full text-white" style={{ backgroundColor: "var(--sky)" }}>
+    <div id="portfolio-layout" className="w-full text-white bg-nsky">
       <Mountains />
       <Trees />
       <Outlet />
