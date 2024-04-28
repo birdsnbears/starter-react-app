@@ -1,36 +1,35 @@
 import React from "react";
-import tree1 from "../SVGs/pineTrees/pineTree (1).svg";
-import tree2 from "../SVGs/pineTrees/pineTree (2).svg";
-import tree3 from "../SVGs/pineTrees/pineTree (3).svg";
-import tree4 from "../SVGs/pineTrees/pineTree (4).svg";
-import tree5 from "../SVGs/pineTrees/pineTree (5).svg";
-import tree6 from "../SVGs/pineTrees/pineTree (6).svg";
-import tree7 from "../SVGs/pineTrees/pineTree (7).svg";
-import tree8 from "../SVGs/pineTrees/pineTree (8).svg";
 import PairOfTrees from "./PairOfTrees";
+import treeList from "../SVGs/pineTrees/pineTrees";
 
-const treePairs = [
-  {
-    name: "background",
-    first: tree8,
-    second: tree7,
-  },
-  {
-    name: "midground2",
-    first: tree6,
-    second: tree5,
-  },
-  {
-    name: "midground1",
-    first: tree4,
-    second: tree3,
-  },
-  {
-    name: "foreground",
-    first: tree2,
-    second: tree1,
-  },
-];
+const numberOfTreePairs = treeList.length / 2;
+
+const treePairs = [];
+const backScale = 0.15;
+const frontScale = 1;
+const backGrowth = 0.05;
+const frontGrowth = 0.25;
+
+/** For each pair of trees:
+ * Calculate the starting scale by interpolating between the first scale and the last
+ * Calculate the amount of growth by interpolating between the first and last growth
+ * Where "growth" is the change in scale starting from the top of the page to the bottom.
+ * A random x-offset was added to make things more "natural"
+ */
+for (let i = 0; i < numberOfTreePairs; i++) {
+  const initialScale = ((frontScale - backScale) * i) / (numberOfTreePairs - 1) + backScale;
+  const growthDiff = ((frontGrowth - backGrowth) * i) / (numberOfTreePairs - 1) + backGrowth;
+  const randOffset = Math.random() * 30 - 15;
+
+  treePairs.push({
+    name: `treePair${i}`,
+    first: treeList[i * 2],
+    second: treeList[i * 2 + 1],
+    initialScale,
+    growthDiff,
+    randOffset,
+  });
+}
 
 function Trees({ percentScroll }) {
   return (
@@ -42,7 +41,7 @@ function Trees({ percentScroll }) {
               className="absolute w-full h-full origin-bottom"
               key={pair.name}
               style={{
-                transform: `scale(${0.5 + 0.25 * index + percentScroll})`,
+                transform: `scale(${pair.initialScale + pair.growthDiff * percentScroll}) translate(${pair.randOffset}%,10%)`,
               }}
             >
               <PairOfTrees tree1={pair.first} tree2={pair.second} percentScroll={percentScroll} />
