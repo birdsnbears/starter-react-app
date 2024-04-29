@@ -14,7 +14,7 @@ function PortolioHomepage() {
         <Banner />
         <main className="pt-24 lg:w-1/2 lg:py-24">
           <About id="about" />
-          {/* <Experience id="experience" /> */}
+          <Experience id="experience" />
         </main>
       </div>
     </div>

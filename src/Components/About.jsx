@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="bg-headerbg/30 backdrop-blur drop-shadow rounded">
+    <div className="bg-headerbg/30 backdrop-blur drop-shadow rounded mb-4">
       <h2 className="text-xl py-4 px-5">About Me</h2>
       <section className="bg-contentbg/30 px-5 py-4 text-md">
         <p className="mb-4">
@@ -13,10 +13,9 @@ function About() {
         </p>
         <p className="mb-4">
           I have learned the most from my experience working in various startups like <span className="text-cyan-300 font-semibold">pHin</span> (now closed),{" "}
-          <span className="text-cyan-300 font-semibold">OneText</span>, and a company that I co-founded{" "}
-          <span className="text-cyan-300 font-semibold">Poisson Games</span>. I'm currently working at{" "}
-          <span className="text-cyan-300 font-semibold">Intel</span> as a Building Technician and spend a lot of my off time working on solo programming
-          projects.
+          <span className="text-cyan-300 font-semibold">OneText</span>, and my own company <span className="text-cyan-300 font-semibold">Poisson Games</span>.
+          I'm currently working at <span className="text-cyan-300 font-semibold">Intel</span> as a Building Technician and spend a lot of my off time working on
+          solo programming projects.
         </p>
         <p className="mb-4">
           I tend to prefer working in full stack environments, as I really value knowing the entire top-to-bottom flow of a system. That way I can try account
